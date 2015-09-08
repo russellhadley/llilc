@@ -41,6 +41,18 @@ public:
     raw_svector_ostream ObjStream(ObjBufferSV);
 
     legacy::PassManager PM;
+
+    // Provide basic AliasAnalysis support for GVN.
+    PM->add(createBasicAliasAnalysisPass());
+    // Do simple "peephole" optimizations and bit-twiddling optzns.
+    PM->add(createInstructionCombiningPass());
+    // Reassociate expressions.
+    PM->add(createReassociatePass());
+    // Eliminate Common SubExpressions.
+    PM->add(createGVNPass());
+    // Simplify the control flow graph (deleting unreachable blocks, etc).
+    PM->add(createCFGSimplificationPass());
+
     MCContext *Ctx;
     if (TM.addPassesToEmitMC(PM, Ctx, ObjStream))
       llvm_unreachable("Target does not support MC emission.");
