@@ -17,6 +17,8 @@
 #ifndef COMPILER_H
 #define COMPILER_H
 
+#include "llvm/Analysis/BasicAliasAnalysis.h"
+#include "llvm/Transforms/Scalar.h"
 #include "GcInfo.h"
 #include "LLILCJit.h"
 #include "llvm/ExecutionEngine/ObjectMemoryBuffer.h"
@@ -43,15 +45,15 @@ public:
     legacy::PassManager PM;
 
     // Provide basic AliasAnalysis support for GVN.
-    PM->add(createBasicAliasAnalysisPass());
+    PM.add(createBasicAliasAnalysisPass());
     // Do simple "peephole" optimizations and bit-twiddling optzns.
-    PM->add(createInstructionCombiningPass());
+    PM.add(createInstructionCombiningPass());
     // Reassociate expressions.
-    PM->add(createReassociatePass());
+    PM.add(createReassociatePass());
     // Eliminate Common SubExpressions.
-    PM->add(createGVNPass());
+    PM.add(createGVNPass());
     // Simplify the control flow graph (deleting unreachable blocks, etc).
-    PM->add(createCFGSimplificationPass());
+    PM.add(createCFGSimplificationPass());
 
     MCContext *Ctx;
     if (TM.addPassesToEmitMC(PM, Ctx, ObjStream))
