@@ -66,6 +66,7 @@ add_llilcjit_library(
   LLILCJit.cpp
   EEMemoryManager.cpp
   jitoptions.cpp
+  JitPassManagerBuilder.cpp
   utility.cpp
   ${LLILCJIT_EXPORTS_DEF}
   )

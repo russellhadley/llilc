@@ -23,6 +23,7 @@
 #include "abi.h"
 #include "EEMemoryManager.h"
 #include "EEObjectLinkingLayer.h"
+#include "JitPassManagerBuilder.h"
 #include "llvm/CodeGen/GCs.h"
 #include "llvm/Config/llvm-config.h"
 #include "llvm/DebugInfo/DIContext.h"
@@ -319,6 +320,11 @@ CorJitResult LLILCJit::compileMethod(ICorJitInfo *JitInfo,
     // Set target machine datalayout on the method module.
     Context.CurrentModule->setDataLayout(TM->createDataLayout());
 
+    // Construct JIT module pass manager and populate with passes
+    legacy::PassManager MPM;
+    JitPassManagerBuilder PMBuilder(Context);
+    PMBuilder.populatePassManager(MPM);
+
     // Construct the jitting layers.
     EEMemoryManager MM(&Context);
     ObjectLoadListener Listener(&Context);
@@ -327,10 +333,12 @@ CorJitResult LLILCJit::compileMethod(ICorJitInfo *JitInfo,
       MM.reserveUnwindSpace(*Obj);
       return std::move(Obj);
     };
+
     orc::ObjectTransformLayer<decltype(Loader), decltype(ReserveUnwindSpace)>
         UnwindReserver(Loader, ReserveUnwindSpace);
+	orc::LLILCCompiler JC = orc::LLILCCompiler(*TM, MPM);
     orc::IRCompileLayer<decltype(UnwindReserver)> Compiler(
-        UnwindReserver, orc::LLILCCompiler(*TM));
+        UnwindReserver, JC);
 
     // Now jit the method.
     if (Context.Options->DumpLevel == DumpLevel::VERBOSE) {
@@ -359,14 +367,6 @@ CorJitResult LLILCJit::compileMethod(ICorJitInfo *JitInfo,
         dbgs() << "INFO:  Dumping LLVM for method " << Context.MethodName
                << "\n";
         Context.CurrentModule->dump();
-      }
-      if (Context.Options->DoInsertStatepoints) {
-        // If using Precise GC, run the GC-Safepoint insertion
-        // and lowering passes before generating code.
-        legacy::PassManager Passes;
-        Passes.add(createPlaceSafepointsPass());
-        Passes.add(createRewriteStatepointsForGCPass());
-        Passes.run(*M);
       }
 
       // Use a custom resolver that will tell the dynamic linker to skip

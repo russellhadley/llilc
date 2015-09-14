@@ -64,6 +64,9 @@ JitOptions::JitOptions(LLILCJitContext &Context) {
   // Set optimization level for this JIT invocation.
   OptLevel = queryOptLevel(Context);
 
+  // Set whether the JIT needs to generate debug info.
+  DoGenerateDebugInfo = queryGenerateDebugInfo(Context);
+
   // Set whether to use conservative GC.
   UseConservativeGC = queryUseConservativeGC(Context);
 
@@ -270,14 +273,29 @@ bool JitOptions::queryDoSIMDIntrinsic(LLILCJitContext &Context) {
 }
 
 OptLevel JitOptions::queryOptLevel(LLILCJitContext &Context) {
-  ::OptLevel JitOptLevel = ::OptLevel::INVALID;
-  // Currently we only check for the debug flag but this will be extended
-  // to account for further opt levels as we move forward.
+  // Default is to produce blended model of fast, small code.
+  ::OptLevel JitOptLevel = ::OptLevel::BLENDED_CODE;
+  // Note DEBUG_CODE is distinct from DEBUG_INFO which can be true
+  // for any optimization level.
   if ((Context.Flags & CORJIT_FLG_DEBUG_CODE) != 0) {
     JitOptLevel = ::OptLevel::DEBUG_CODE;
+  } else if ((Context.Flags & CORJIT_FLG_SPEED_OPT) != 0) {
+    JitOptLevel = ::OptLevel::FAST_CODE;
+  } else if ((Context.Flags & CORJIT_FLG_SIZE_OPT) != 0) {
+    JitOptLevel = ::OptLevel::SMALL_CODE;
   }
 
   return JitOptLevel;
+}
+
+// Determine if debug info is requested for the given method.
+bool JitOptions::queryGenerateDebugInfo(LLILCJitContext &Context) {
+  bool GenerateDebugInfo = false;
+  if ((Context.Flags & CORJIT_FLG_DEBUG_INFO) != 0) {
+    GenerateDebugInfo = true;
+  }
+
+  return GenerateDebugInfo;
 }
 
 JitOptions::~JitOptions() {}

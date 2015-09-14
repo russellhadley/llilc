@@ -35,25 +35,12 @@ namespace orc {
 class LLILCCompiler {
 public:
   /// \brief Construct a simple compile functor with the given target.
-  LLILCCompiler(TargetMachine &TM) : TM(TM) {}
+  LLILCCompiler(TargetMachine &TM, legacy::PassManager &PM) : TM(TM), PM(PM) {}
 
   /// \brief Compile a Module to an ObjectFile.
   object::OwningBinary<object::ObjectFile> operator()(Module &M) const {
     SmallVector<char, 0> ObjBufferSV;
     raw_svector_ostream ObjStream(ObjBufferSV);
-
-    legacy::PassManager PM;
-
-    // Provide basic AliasAnalysis support for GVN.
-    PM.add(createBasicAliasAnalysisPass());
-    // Do simple "peephole" optimizations and bit-twiddling optzns.
-    PM.add(createInstructionCombiningPass());
-    // Reassociate expressions.
-    PM.add(createReassociatePass());
-    // Eliminate Common SubExpressions.
-    PM.add(createGVNPass());
-    // Simplify the control flow graph (deleting unreachable blocks, etc).
-    PM.add(createCFGSimplificationPass());
 
     MCContext *Ctx;
     if (TM.addPassesToEmitMC(PM, Ctx, ObjStream))
@@ -73,6 +60,7 @@ public:
 
 private:
   TargetMachine &TM;
+  legacy::PassManager &PM;
 };
 } // namespace orc
 } // namespace llvm

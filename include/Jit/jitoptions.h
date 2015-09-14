@@ -17,7 +17,7 @@
 #ifndef JITOPTIONS_H
 #define JITOPTIONS_H
 
-#include "options.h"
+#include "Reader/options.h"
 
 /// \brief The JIT options implementation.
 ///
@@ -55,6 +55,11 @@ private:
   /// Opt Level based on CLR provided flags and environment.
   /// \returns Computed OptLevel
   static ::OptLevel queryOptLevel(LLILCJitContext &JitContext);
+
+  /// \brief Set DoGenerateDebugInfo based on context.
+  ///
+  /// \returns true if the JIT should generate debug info.
+  static bool queryGenerateDebugInfo(LLILCJitContext &JitContext);
 
   /// \brief Set UseConservativeGC based on environment variable.
   ///
