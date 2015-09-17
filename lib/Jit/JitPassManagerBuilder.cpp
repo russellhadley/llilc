@@ -40,7 +40,9 @@ void JitPassManagerBuilder::populatePassManager(
       (OptLevel == ::OptLevel::FAST_CODE) ||
       (OptLevel == ::OptLevel::SMALL_CODE)) {
     // Provide basic AliasAnalysis support for GVN.
-    PM.add(createBasicAliasAnalysisPass());
+    PM.add(createBasicAAWrapperPass());
+    // Promote memory to registers.
+    PM.add(createPromoteMemoryToRegisterPass());
     // Do simple "peephole" optimizations and bit-twiddling optzns.
     PM.add(createInstructionCombiningPass());
     // Reassociate expressions.
