@@ -77,7 +77,9 @@ public:
       const object::ObjectFile &Obj = *PObj;
       const RuntimeDyld::LoadedObjectInfo &L = *LoadedObjInfos[I];
 
-      getDebugInfoForObject(Obj, L);
+   	  if (Context->Options->OptLevel == ::OptLevel::DEBUG_CODE) {
+        getDebugInfoForObject(Obj, L);
+      }
 
       recordRelocations(Obj, L);
 

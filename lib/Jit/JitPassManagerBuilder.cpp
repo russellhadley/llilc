@@ -56,6 +56,6 @@ void JitPassManagerBuilder::populatePassManager(
   // Insert safepoint processing
   if (DoInsertStatepoints) {
     PM.add(createPlaceSafepointsPass());
-    PM.add(createRewriteStatepointsForGCPass(false));
+    PM.add(createRewriteStatepointsForGCPass());
   }
 }
