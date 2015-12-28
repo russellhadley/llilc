@@ -51,6 +51,7 @@ struct Options {
   ::DumpLevel DumpLevel;    ///< Dump level for this JIT invocation.
   ::OptLevel OptLevel;      ///< Optimization level for this JIT invocation.
   bool DoGenerateDebugInfo; ///< Generate line and locals debug info.
+  bool EnableOptimization;  ///< True iff OptLevel is not debug
   bool UseConservativeGC;   ///< True if the environment is set to use CGC.
   bool DoInsertStatepoints; ///< True if the environment calls for statepoints.
   bool DoTailCallOpt;       ///< Tail call optimization.

@@ -1,8 +1,1043 @@
 <Project DefaultTargets = "GetListOfTestCmds"
     xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
     <ItemGroup Condition="'$(XunitTestBinBase)' != ''">
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\v4\dev10_804810\dev10_804810\*" >
-             <Issue>636</Issue>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M11-Beta1\b33928\b33928\b33928.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M12-Beta2\b37215\b37215\b37215.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\hfa\main\testE\hfa_sd2E_r\hfa_sd2E_r.cmd" >
+             <Issue>982</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\hfa\main\testE\hfa_nf2E_d\hfa_nf2E_d.cmd" >
+             <Issue>982</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\hfa\main\testE\hfa_sf2E_d\hfa_sf2E_d.cmd" >
+             <Issue>982</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\hfa\main\testE\hfa_nd2E_r\hfa_nd2E_r.cmd" >
+             <Issue>982</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\hfa\main\testE\hfa_nd2E_d\hfa_nd2E_d.cmd" >
+             <Issue>982</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\hfa\main\testE\hfa_sf2E_r\hfa_sf2E_r.cmd" >
+             <Issue>982</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\hfa\main\testE\hfa_sd2E_d\hfa_sd2E_d.cmd" >
+             <Issue>982</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\hfa\main\testE\hfa_nf2E_r\hfa_nf2E_r.cmd" >
+             <Issue>982</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\_il_dbglcs\_il_dbglcs.cmd" >
+             <Issue>983</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\_il_rellcs\_il_rellcs.cmd" >
+             <Issue>983</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\starg_i\starg_i.cmd" >
+             <Issue>984</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\pinvoke\calli_excep\calli_excep.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V2.0-Beta2\b426654\b426654\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)JIT\Methodical\eh\finallyexec\nonlocalexittonestedsibling_r\nonlocalexittonestedsibling_r.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\div_i4\div_i4.cmd" >
+             <Issue>985</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\div_i8\div_i8.cmd" >
+             <Issue>985</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\rem_i4\rem_i4.cmd" >
+             <Issue>985</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\rem_i8\rem_i8.cmd" >
+             <Issue>985</Issue>
+        </ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\rtchecks\overflow\overflow03_div\overflow03_div.cmd" >
+	     <Issue>985</Issue>
+	</ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\ckfinite_r4\ckfinite_r4.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\directed\ldloca_s_r4\ldloca_s_r4.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\directed\ldloca_s_r8\ldloca_s_r8.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\objectmodel\castclass\castclass.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\objectmodel\seh_tests\seh_tests.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\objectmodel\throw\throw.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\misc\_il_dbgaddress\_il_dbgaddress.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\misc\_il_dbgldelem_get\_il_dbgldelem_get.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\misc\_il_dbglength0\_il_dbglength0.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\misc\_il_reladdress\_il_reladdress.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\misc\_il_relarrres\_il_relarrres.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\misc\_il_relldelem_get\_il_relldelem_get.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\misc\_il_rellength0\_il_rellength0.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\range\_il_dbgfloat64_range1\_il_dbgfloat64_range1.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\range\_il_dbgfloat64_range2\_il_dbgfloat64_range2.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\range\_il_dbgint32_0\_il_dbgint32_0.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\range\_il_dbgint32_0_5a\_il_dbgint32_0_5a.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\range\_il_dbgint32_0_5b\_il_dbgint32_0_5b.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\range\_il_dbgint32_1\_il_dbgint32_1.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\range\_il_dbgint32_m1\_il_dbgint32_m1.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\range\_il_dbgint32_neg_range\_il_dbgint32_neg_range.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\range\_il_dbgint32_range1\_il_dbgint32_range1.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\range\_il_dbgint32_range2\_il_dbgint32_range2.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\range\_il_relfloat64_range1\_il_relfloat64_range1.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\range\_il_relfloat64_range2\_il_relfloat64_range2.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\range\_il_relint32_0\_il_relint32_0.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\range\_il_relint32_0_5a\_il_relint32_0_5a.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\range\_il_relint32_0_5b\_il_relint32_0_5b.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\range\_il_relint32_1\_il_relint32_1.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\range\_il_relint32_m1\_il_relint32_m1.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\range\_il_relint32_neg_range\_il_relint32_neg_range.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\range\_il_relint32_range1\_il_relint32_range1.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\range\_il_relint32_range2\_il_relint32_range2.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Boxing\boxunbox\_il_dbghuge_filter\_il_dbghuge_filter.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Boxing\boxunbox\_il_relhuge_filter\_il_relhuge_filter.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Boxing\misc\_dbgconcurgc_il\_dbgconcurgc_il.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Boxing\misc\_relconcurgc_il\_relconcurgc_il.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Boxing\seh\_dbgfault\_dbgfault.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Boxing\seh\_dbgfilter\_dbgfilter.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Boxing\seh\_dbgtry_il\_dbgtry_il.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Boxing\seh\_relfault\_relfault.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Boxing\seh\_relfilter\_relfilter.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Boxing\seh\_reltry_il\_reltry_il.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\cctor\misc\Desktop\throw_cs_d\throw_cs_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\cctor\misc\Desktop\throw_cs_do\throw_cs_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\cctor\misc\Desktop\throw_cs_r\throw_cs_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\cctor\misc\Desktop\throw_cs_ro\throw_cs_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\multihandler_d\multihandler_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\multihandler_do\multihandler_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\multihandler_r\multihandler_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\multihandler_ro\multihandler_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwincatch_d\throwincatch_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwincatch_do\throwincatch_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwincatch_r\throwincatch_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwincatch_ro\throwincatch_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinclassconstructor_d\throwinclassconstructor_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinclassconstructor_do\throwinclassconstructor_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinclassconstructor_r\throwinclassconstructor_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinclassconstructor_ro\throwinclassconstructor_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfinally_d\throwinfinally_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfinally_do\throwinfinally_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfinally_r\throwinfinally_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfinally_ro\throwinfinally_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfinallyerrpath_d\throwinfinallyerrpath_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfinallyerrpath_do\throwinfinallyerrpath_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfinallyerrpath_r\throwinfinallyerrpath_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfinallyerrpath_ro\throwinfinallyerrpath_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfinallyerrpathfn_d\throwinfinallyerrpathfn_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfinallyerrpathfn_do\throwinfinallyerrpathfn_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfinallyerrpathfn_r\throwinfinallyerrpathfn_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfinallyerrpathfn_ro\throwinfinallyerrpathfn_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwoutside_d\throwoutside_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwoutside_do\throwoutside_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwoutside_r\throwoutside_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwoutside_ro\throwoutside_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\tryfinallytrycatch_d\tryfinallytrycatch_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\tryfinallytrycatch_do\tryfinallytrycatch_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\tryfinallytrycatch_r\tryfinallytrycatch_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\tryfinallytrycatch_ro\tryfinallytrycatch_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\trythrowcatch_d\trythrowcatch_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\trythrowcatch_do\trythrowcatch_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\trythrowcatch_r\trythrowcatch_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\trythrowcatch_ro\trythrowcatch_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\trythrowcatchfinally_d\trythrowcatchfinally_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\trythrowcatchfinally_do\trythrowcatchfinally_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\trythrowcatchfinally_r\trythrowcatchfinally_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\trythrowcatchfinally_ro\trythrowcatchfinally_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\cs\unsafe_d\unsafe_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\cs\unsafe_do\unsafe_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\cs\unsafe_r\unsafe_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\cs\unsafe_ro\unsafe_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\catchrettoinnertry_d\catchrettoinnertry_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\catchrettoinnertry_do\catchrettoinnertry_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\catchrettoinnertry_r\catchrettoinnertry_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\catchrettoinnertry_ro\catchrettoinnertry_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\loopinfinally_d\loopinfinally_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\loopinfinally_do\loopinfinally_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\loopinfinally_r\loopinfinally_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\loopinfinally_ro\loopinfinally_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\nonlocalgotoinatryblockinahandler_d\nonlocalgotoinatryblockinahandler_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\nonlocalgotoinatryblockinahandler_do\nonlocalgotoinatryblockinahandler_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\nonlocalgotoinatryblockinahandler_r\nonlocalgotoinatryblockinahandler_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\nonlocalgotoinatryblockinahandler_ro\nonlocalgotoinatryblockinahandler_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\tryCatchFinallyThrow_nonlocalexit1_d\tryCatchFinallyThrow_nonlocalexit1_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\tryCatchFinallyThrow_nonlocalexit1_do\tryCatchFinallyThrow_nonlocalexit1_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\tryCatchFinallyThrow_nonlocalexit1_r\tryCatchFinallyThrow_nonlocalexit1_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\tryCatchFinallyThrow_nonlocalexit1_ro\tryCatchFinallyThrow_nonlocalexit1_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\tryCatchFinallyThrow_nonlocalexit2_d\tryCatchFinallyThrow_nonlocalexit2_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\tryCatchFinallyThrow_nonlocalexit2_do\tryCatchFinallyThrow_nonlocalexit2_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\tryCatchFinallyThrow_nonlocalexit2_r\tryCatchFinallyThrow_nonlocalexit2_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\tryCatchFinallyThrow_nonlocalexit2_ro\tryCatchFinallyThrow_nonlocalexit2_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\tryCatchFinallyThrow_nonlocalexit3_d\tryCatchFinallyThrow_nonlocalexit3_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\tryCatchFinallyThrow_nonlocalexit3_do\tryCatchFinallyThrow_nonlocalexit3_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\tryCatchFinallyThrow_nonlocalexit3_r\tryCatchFinallyThrow_nonlocalexit3_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\tryCatchFinallyThrow_nonlocalexit3_ro\tryCatchFinallyThrow_nonlocalexit3_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\tryCatchFinallyThrow_nonlocalexit4_d\tryCatchFinallyThrow_nonlocalexit4_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\tryCatchFinallyThrow_nonlocalexit4_do\tryCatchFinallyThrow_nonlocalexit4_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\tryCatchFinallyThrow_nonlocalexit4_r\tryCatchFinallyThrow_nonlocalexit4_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\tryCatchFinallyThrow_nonlocalexit4_ro\tryCatchFinallyThrow_nonlocalexit4_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\tryfinallythrow_nonlocalexit_d\tryfinallythrow_nonlocalexit_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\tryfinallythrow_nonlocalexit_do\tryfinallythrow_nonlocalexit_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\tryfinallythrow_nonlocalexit_r\tryfinallythrow_nonlocalexit_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\tryfinallythrow_nonlocalexit_ro\tryfinallythrow_nonlocalexit_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\generics\throwincatch_d\throwincatch_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\generics\throwincatch_do\throwincatch_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\generics\throwincatch_r\throwincatch_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\generics\throwincatch_ro\throwincatch_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\generics\trycatchnestedtype_d\trycatchnestedtype_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\generics\trycatchnestedtype_do\trycatchnestedtype_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\generics\trycatchnestedtype_r\trycatchnestedtype_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\generics\trycatchnestedtype_ro\trycatchnestedtype_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\generics\trycatchsimpletype_d\trycatchsimpletype_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\generics\trycatchsimpletype_do\trycatchsimpletype_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\generics\trycatchsimpletype_r\trycatchsimpletype_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\generics\trycatchsimpletype_ro\trycatchsimpletype_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\interactions\gcincatch_d\gcincatch_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\interactions\gcincatch_do\gcincatch_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\interactions\gcincatch_r\gcincatch_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\interactions\gcincatch_ro\gcincatch_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\catchretnonlocalexitinfunclet_d\catchretnonlocalexitinfunclet_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\catchretnonlocalexitinfunclet_do\catchretnonlocalexitinfunclet_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\catchretnonlocalexitinfunclet_r\catchretnonlocalexitinfunclet_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\catchretnonlocalexitinfunclet_ro\catchretnonlocalexitinfunclet_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\nonlocalexitfromnestedcatch_d\nonlocalexitfromnestedcatch_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\nonlocalexitfromnestedcatch_do\nonlocalexitfromnestedcatch_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\nonlocalexitfromnestedcatch_r\nonlocalexitfromnestedcatch_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\nonlocalexitfromnestedcatch_ro\nonlocalexitfromnestedcatch_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\oponerror_d\oponerror_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\oponerror_do\oponerror_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\oponerror_r\oponerror_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\oponerror_ro\oponerror_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\cascadedcatch_d\cascadedcatch_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\cascadedcatch_do\cascadedcatch_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\cascadedcatch_r\cascadedcatch_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\cascadedcatch_ro\cascadedcatch_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\methodthrowsinfinally_d\methodthrowsinfinally_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\methodthrowsinfinally_do\methodthrowsinfinally_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\methodthrowsinfinally_r\methodthrowsinfinally_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\methodthrowsinfinally_ro\methodthrowsinfinally_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\rethrowincatchnestedinfinally_d\rethrowincatchnestedinfinally_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\rethrowincatchnestedinfinally_do\rethrowincatchnestedinfinally_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\rethrowincatchnestedinfinally_r\rethrowincatchnestedinfinally_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\rethrowincatchnestedinfinally_ro\rethrowincatchnestedinfinally_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\throwinfinally_d\throwinfinally_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\throwinfinally_do\throwinfinally_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\throwinfinally_r\throwinfinally_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\throwinfinally_ro\throwinfinally_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\throwinfinallynestedintry_d\throwinfinallynestedintry_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\throwinfinallynestedintry_do\throwinfinallynestedintry_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\throwinfinallynestedintry_r\throwinfinallynestedintry_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\throwinfinallynestedintry_ro\throwinfinallynestedintry_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\throwinnestedfinally_d\throwinnestedfinally_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\throwinnestedfinally_do\throwinnestedfinally_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\throwinnestedfinally_r\throwinnestedfinally_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\throwinnestedfinally_ro\throwinnestedfinally_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\trycatchintryfinally_d\trycatchintryfinally_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\trycatchintryfinally_do\trycatchintryfinally_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\trycatchintryfinally_r\trycatchintryfinally_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\trycatchintryfinally_ro\trycatchintryfinally_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\nonlocalexit\throwinfinally_50_d\throwinfinally_50_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\nonlocalexit\throwinfinally_50_do\throwinfinally_50_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\nonlocalexit\throwinfinally_50_r\throwinfinally_50_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\nonlocalexit\throwinfinally_50_ro\throwinfinally_50_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\nonlocalexit\throwinfinallynestedintry_30_d\throwinfinallynestedintry_30_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\nonlocalexit\throwinfinallynestedintry_30_do\throwinfinallynestedintry_30_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\nonlocalexit\throwinfinallynestedintry_30_r\throwinfinallynestedintry_30_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\nonlocalexit\throwinfinallynestedintry_30_ro\throwinfinallynestedintry_30_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\nonlocalexit\throwinfinallyrecursive_20_d\throwinfinallyrecursive_20_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\nonlocalexit\throwinfinallyrecursive_20_do\throwinfinallyrecursive_20_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\nonlocalexit\throwinfinallyrecursive_20_r\throwinfinallyrecursive_20_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\nonlocalexit\throwinfinallyrecursive_20_ro\throwinfinallyrecursive_20_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\regress\asurt\122239\outermostFinally\outermostFinally.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\regress\asurt\140713\innerFinally_d\innerFinally_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\regress\asurt\140713\innerFinally_do\innerFinally_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\regress\asurt\140713\innerFinally_r\innerFinally_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\regress\asurt\140713\innerFinally_ro\innerFinally_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\regress\asurt\141358\uncaughtException_d\uncaughtException_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\regress\asurt\141358\uncaughtException_do\uncaughtException_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\regress\asurt\141358\uncaughtException_r\uncaughtException_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\regress\asurt\141358\uncaughtException_ro\uncaughtException_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\regress\vswhidbey\148190\baduwinfo1\baduwinfo1.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\regress\vswhidbey\148190\baduwinfo\baduwinfo.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\rethrowinfinallyaftercatch_d\rethrowinfinallyaftercatch_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\rethrowinfinallyaftercatch_do\rethrowinfinallyaftercatch_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\rethrowinfinallyaftercatch_r\rethrowinfinallyaftercatch_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\rethrowinfinallyaftercatch_ro\rethrowinfinallyaftercatch_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\rethrowwithhandlerscatchingbase_d\rethrowwithhandlerscatchingbase_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\rethrowwithhandlerscatchingbase_do\rethrowwithhandlerscatchingbase_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\rethrowwithhandlerscatchingbase_r\rethrowwithhandlerscatchingbase_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\rethrowwithhandlerscatchingbase_ro\rethrowwithhandlerscatchingbase_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\samerethrowtwice_d\samerethrowtwice_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\samerethrowtwice_do\samerethrowtwice_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\samerethrowtwice_r\samerethrowtwice_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\samerethrowtwice_ro\samerethrowtwice_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\samethrowtwice_d\samethrowtwice_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\samethrowtwice_do\samethrowtwice_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\samethrowtwice_r\samethrowtwice_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\samethrowtwice_ro\samethrowtwice_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\simplerethrow_d\simplerethrow_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\simplerethrow_do\simplerethrow_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\simplerethrow_r\simplerethrow_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\simplerethrow_ro\simplerethrow_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\throwwithhandlerscatchingbase_d\throwwithhandlerscatchingbase_d.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\throwwithhandlerscatchingbase_do\throwwithhandlerscatchingbase_do.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\throwwithhandlerscatchingbase_r\throwwithhandlerscatchingbase_r.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\throwwithhandlerscatchingbase_ro\throwwithhandlerscatchingbase_ro.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\flowgraph\bug619534\NonVirtualCall\NonVirtualCall.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\flowgraph\bug619534\moduleHandleCache\moduleHandleCache.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\stringintern\test4-xassem\test4-xassem.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M12-Beta2\b51875\Desktop\b51875\b51875.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\dev10\b519927\b519927\b519927.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\Dev11\dev11_4421\Dev11_4421\Dev11_4421.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\JitBlue\devdiv_902271\DevDiv_902271\DevDiv_902271.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\M00\b112348\b112348\b112348.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\V1.2-M02\b12011\b12011\b12011.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\eh\FinallyExec\nestedTryRegionsWithSameOffset3\nestedTryRegionsWithSameOffset3.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\eh\FinallyExec\nestedTryRegionsWithSameOffset3_o\nestedTryRegionsWithSameOffset3_o.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\eh\FinallyExec\nonlocalgotoinatryblockinahandler\nonlocalgotoinatryblockinahandler.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\eh\Leaves\nonlocalexitfromnestedcatch\nonlocalexitfromnestedcatch.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh05_dynamic\eh05_dynamic.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh06_dynamic\eh06_dynamic.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh07_dynamic\eh07_dynamic.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh07_large\eh07_large.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh07_small\eh07_small.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh08_dynamic\eh08_dynamic.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh11_dynamic\eh11_dynamic.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh11_large\eh11_large.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh11_small\eh11_small.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh12_dynamic\eh12_dynamic.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh12_large\eh12_large.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh12_small\eh12_small.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh13_dynamic\eh13_dynamic.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh13_large\eh13_large.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh13_small\eh13_small.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i00\mcc_i00.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i01\mcc_i01.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i02\mcc_i02.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i03\mcc_i03.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i04\mcc_i04.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i05\mcc_i05.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i06\mcc_i06.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i07\mcc_i07.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i10\mcc_i10.cmd" >
+             <Issue>CoreClr/1440</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i11\mcc_i11.cmd" >
+             <Issue>CoreClr/1440</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i12\mcc_i12.cmd" >
+             <Issue>CoreClr/1440</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i13\mcc_i13.cmd" >
+             <Issue>CoreClr/1440</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i14\mcc_i14.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i15\mcc_i15.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i16\mcc_i16.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i17\mcc_i17.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i30\mcc_i30.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i31\mcc_i31.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i32\mcc_i32.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i33\mcc_i33.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i34\mcc_i34.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i35\mcc_i35.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i36\mcc_i36.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i37\mcc_i37.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i50\mcc_i50.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i51\mcc_i51.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i52\mcc_i52.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i53\mcc_i53.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i54\mcc_i54.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i55\mcc_i55.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i56\mcc_i56.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i57\mcc_i57.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i60\mcc_i60.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i61\mcc_i61.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i62\mcc_i62.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i63\mcc_i63.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i64\mcc_i64.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i65\mcc_i65.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i66\mcc_i66.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i67\mcc_i67.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i70\mcc_i70.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i71\mcc_i71.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i72\mcc_i72.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i73\mcc_i73.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i74\mcc_i74.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i75\mcc_i75.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i76\mcc_i76.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i77\mcc_i77.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i80\mcc_i80.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i81\mcc_i81.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i82\mcc_i82.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i83\mcc_i83.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\mcc\interop\mcc_i87\mcc_i87.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\regress\ddb\87766\ddb87766\ddb87766.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\opt\Tailcall\TailcallVerifyWithPrefix\TailcallVerifyWithPrefix.cmd" >
+             <Issue>970</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\tailcall_v4\hijacking\*" >
+             <Issue>964</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\SIMD\VectorArrayGet\VectorArrayGet.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\SIMD\VectorArrayInit\VectorArrayInit.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\SIMD\VectorCopyToArray\VectorCopyToArray.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\SIMD\VectorGet\VectorGet.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\V2.0-RTM\b539509\b539509\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\V1.2-M02\b26496\b26496\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\V1.2-M02\b10828\b10828\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\M00\b92713\b92713\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\M00\b111130\b111130\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\Dev11\Dev11_468598\Test_HndIndex_10_Plain\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\Dev11\Dev11_468598\Test_HndIndex_10_Reordered\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V2.0-Beta2\b091942\b091942\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1.2-M01\b02345\b02345\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1.2-Beta1\b223936\b223936\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1.2-Beta1\b223924\b223924\*" >
+             <Issue>13</Issue>
         </ExcludeList>
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M12-Beta2\b91377\b91377\*" >
              <Issue>13</Issue>
@@ -10,19 +1045,13 @@
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M12-Beta2\b77713\b77713\*" >
              <Issue>13</Issue>
         </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\oldtests\ovfldiv2_il_r\*" >
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M12-Beta2\b77707\b77707\*" >
              <Issue>13</Issue>
         </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\M00\b109721\b109721\*" >
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M12-Beta2\b55216\b55216\*" >
              <Issue>13</Issue>
         </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\M00\b112982\b112982\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1.2-M01\b02345\b02345\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\V2.0-RTM\b539509\b539509\*" >
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M10\b06435\b06435\*" >
              <Issue>13</Issue>
         </ExcludeList>
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\localloc\verify\verify01_small\*" >
@@ -31,73 +1060,10 @@
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\localloc\verify\verify01_large\*" >
              <Issue>13</Issue>
         </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\StrAccess\straccess3_cs_ro\*" >
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\localloc\verify\verify01_dynamic\*" >
              <Issue>13</Issue>
         </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\StrAccess\straccess3_cs_do\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\M00\b92713\b92713\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M12-Beta2\b77707\b77707\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\FaultHandlers\Simple\simple\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\FaultHandlers\CallOrder\CallOrder\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\FaultHandlers\Nesting\Nesting\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\V1.2-M02\b26496\b26496\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\throwbox\fault\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\oldtests\ovflrem2_il_d\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\oldtests\ovflrem2_il_r\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\MDArray\basics\structarr_cs_do\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\oldtests\ovfldiv2_il_d\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1.2-Beta1\b223924\b223924\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\gc\regress\vswhidbey\143837\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Generics\Exceptions\specific_struct_static01\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Generics\Exceptions\specific_struct_instance01\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Generics\Exceptions\specific_class_static01\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Generics\Exceptions\specific_class_instance01\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M10\b06435\b06435\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\ExcepFilters\fault\fault\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\ExcepFilters\mixed\mixed\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\ExcepFilters\excepobj\excepobj\*" >
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Invoke\SEH\_il_dbgcatchfault_tail\*" >
              <Issue>13</Issue>
         </ExcludeList>
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Invoke\SEH\_il_dbgcatchfault\*" >
@@ -115,49 +1081,28 @@
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Invoke\SEH\_il_relcatchfault_tail\*" >
              <Issue>13</Issue>
         </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\CodeGenBringUpTests\localloc\*" >
-             <Issue>13</Issue>
-        </ExcludeList> 
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M09.5-PDC\b11490\b11490\*" >
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\casts\SEH\_speed_relthrow\*" >
              <Issue>13</Issue>
         </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V2.0-Beta2\b091942\b091942\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\regress\vsw\539509\test1\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M12-Beta2\b84971\b84971\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M09\b15864\b15864\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\importer\ceeillegal\*" >
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\casts\SEH\_speed_dbgthrow\*" >
              <Issue>13</Issue>
         </ExcludeList>
         <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\verif\sniff\fg\ver_fg_13\*" >
              <Issue>13</Issue>
         </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\Dev11\Dev11_468598\Test_HndIndex_10_Plain\*" >
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\regress\vsw\539509\test1\*" >
              <Issue>13</Issue>
         </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\Dev11\Dev11_468598\Test_HndIndex_10_Reordered\*" >
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Generics\Exceptions\specific_struct_static01\*" >
              <Issue>13</Issue>
         </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M09.5-PDC\b27824\b27824\*" >
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Generics\Exceptions\specific_struct_instance01\*" >
              <Issue>13</Issue>
         </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\MDArray\basics\structarr_cs_ro\*" >
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Generics\Exceptions\specific_class_static01\*" >
              <Issue>13</Issue>
         </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\V1.2-M02\b10828\b10828\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\M00\b111130\b111130\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M12-Beta2\b55216\b55216\*" >
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Generics\Exceptions\specific_class_instance01\*" >
              <Issue>13</Issue>
         </ExcludeList>
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\throwbox\finally\*" >
@@ -166,17 +1111,44 @@
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\throwbox\rethrow\*" >
              <Issue>13</Issue>
         </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\throwbox\fault\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\FaultHandlers\Simple\simple\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\FaultHandlers\CallOrder\CallOrder\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\FaultHandlers\Nesting\Nesting\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\ExcepFilters\fault\fault\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\oldtests\ovflrem2_il_d\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\oldtests\ovflrem2_il_r\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\oldtests\ovfldiv2_il_d\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\oldtests\ovfldiv2_il_r\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\importer\ceeillegal\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\importer\badendfinally\*" >
              <Issue>13</Issue>
         </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\localloc\verify\verify01_dynamic\*" >
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\CodeGenBringUpTests\localloc\*" >
              <Issue>13</Issue>
         </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1.2-Beta1\b223936\b223936\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Invoke\SEH\_il_dbgcatchfault_tail\*" >
-             <Issue>13</Issue>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\v4\dev10_804810\dev10_804810\*" >
+             <Issue>636</Issue>
         </ExcludeList>
         <ExcludeList Include="$(XunitTestBinbase)\JIT\Directed\lifetime\lifetime2\*" >
              <Issue>CoreClr/1037</Issue>
@@ -253,6 +1225,15 @@
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V2.0-Beta2\b409748\b409748\*" >
              <Issue>CoreClr/1440</Issue>
         </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Coverage\arglist_pos\arglist_pos.cmd" >
+             <Issue>CoreClr/1440</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M09.5-PDC\b26324\b26324a\*" >
+             <Issue>CoreClr/1440</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M09.5-PDC\b26324\b26324b\*" >
+             <Issue>CoreClr/1440</Issue>
+        </ExcludeList>
         <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\opt\cse\HugeArray1\*" >
              <Issue>794</Issue>
         </ExcludeList>
@@ -269,16 +1250,16 @@
              <Issue>640</Issue>
         </ExcludeList>
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\PREFIX\unaligned\1\arglist\*" >
-             <Issue>52</Issue>
+             <Issue>CoreCLR/1440</Issue>
         </ExcludeList>
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\PREFIX\unaligned\2\arglist\*" >
-             <Issue>52</Issue>
+             <Issue>CoreCLR/1440</Issue>
         </ExcludeList>
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\PREFIX\unaligned\4\arglist\*" >
-             <Issue>52</Issue>
+             <Issue>CoreCLR/1440</Issue>
         </ExcludeList>
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\PREFIX\volatile\1\arglist\*" >
-             <Issue>52</Issue>
+             <Issue>CoreCLR/1440</Issue>
         </ExcludeList>
         <ExcludeList Include="$(XunitTestBinBase)\Interop\NativeCallable\NativeCallableTest\*" >
              <Issue>860</Issue>
@@ -289,23 +1270,524 @@
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\_il_dbgseq\*" >
              <Issue>CoreCLR/1440</Issue>
         </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\misc\arrres\*" >
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\misc\_dbgarrres\*" >
+             <Issue>CoreClr/1373</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\misc\_relarrres\*" >
+             <Issue>CoreClr/1373</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\misc\_speed_dbgarrres\*" >
+             <Issue>CoreClr/1373</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\misc\_speed_relarrres\*" >
+             <Issue>CoreClr/1373</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\misc\_il_dbgarrres\*" >
              <Issue>CoreClr/1373</Issue>
         </ExcludeList>
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\V1.2-M02\b28158\b28158\*" >
              <Issue>898</Issue>
         </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\structs\systemvbringup\structinregs\*" >
+             <Issue>927</Issue>
+        </ExcludeList>
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\StructABI\StructABI\*" >
              <Issue>927</Issue>
         </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\casts\SEH\_speed_relthrow\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\casts\SEH\_speed_dbgthrow\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V2.0-Beta2\b268908\b268908\b268908.cmd" >
+	     <Issue>963</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\misc\_speed_dbgarrres\_speed_dbgarrres.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\misc\_dbgarrres\_dbgarrres.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\misc\_speed_relarrres\_speed_relarrres.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Arrays\misc\_relarrres\_relarrres.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\opt\cse\hugeexpr1\hugeexpr1.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\V1.2-M01\b10827\b10827\b10827.cmd" >
+	     <Issue>961</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M12-Beta2\b51875\b51875\b51875.cmd" >
+	     <Issue>962</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\compiler\FilterToHandler\FilterToHandler.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\importer\Desktop\badendfinally_il_d\badendfinally_il_d.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\importer\Desktop\badendfinally_il_r\badendfinally_il_r.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\importer\Desktop\byrefsubbyref1_il_d\byrefsubbyref1_il_d.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\importer\Desktop\byrefsubbyref1_il_r\byrefsubbyref1_il_r.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\importer\Desktop\ceeillegal_il_d\ceeillegal_il_d.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\importer\Desktop\ceeillegal_il_r\ceeillegal_il_r.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\oldtests\ovfldiv1_il_d\ovfldiv1_il_d.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\oldtests\ovfldiv1_il_r\ovfldiv1_il_r.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\oldtests\ovflrem1_il_d\ovflrem1_il_d.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\oldtests\ovflrem1_il_r\ovflrem1_il_r.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\perffix\primitivevt\callconv3_il_d\callconv3_il_d.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\perffix\primitivevt\callconv3_il_r\callconv3_il_r.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\tailcall\tailcall\tailcall.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\eh\basics\throwinfinallyintryfilter3\throwinfinallyintryfilter3.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\eh\eh04_dynamic\eh04_dynamic.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\eh\eh04_large\eh04_large.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\eh\eh04_small\eh04_small.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh05_large\eh05_large.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh05_small\eh05_small.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh06_large\eh06_large.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh06_small\eh06_small.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh08_large\eh08_large.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\ehverify\eh08_small\eh08_small.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\unwind\unwind04_dynamic\unwind04_dynamic.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\unwind\unwind04_large\unwind04_large.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\unwind\unwind04_small\unwind04_small.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\opt\rngchk\ArrayWithThread_o\ArrayWithThread_o.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\regress\vsw\543645\test\test.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\regress\vsw\546707\sql_stress4\sql_stress4.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfinallyintryfilter3_d\throwinfinallyintryfilter3_d.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfinallyintryfilter3_r\throwinfinallyintryfilter3_r.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\tryfaulttrycatch_d\tryfaulttrycatch_d.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\tryfaulttrycatch_r\tryfaulttrycatch_r.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\tryfaulttrycatchfn_d\tryfaulttrycatchfn_d.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\tryfaulttrycatchfn_r\tryfaulttrycatchfn_r.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\mixedhandler\filterfiltercatchcatch_d\filterfiltercatchcatch_d.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\mixedhandler\filterfiltercatchcatch_r\filterfiltercatchcatch_r.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\nestedtry\throwinnestedtryfault_d\throwinnestedtryfault_d.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\nestedtry\throwinnestedtryfault_r\throwinnestedtryfault_r.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\rethrowinfinallyinsidecatch_d\rethrowinfinallyinsidecatch_d.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\rethrow\rethrowinfinallyinsidecatch_r\rethrowinfinallyinsidecatch_r.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\flowgraph\dev10_bug679008\ehDescriptorPtrUpdate\ehDescriptorPtrUpdate.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\flowgraph\dev10_bug679008\fgloop2\fgloop2.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\FPtrunc\convx_il_d\convx_il_d.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\FPtrunc\convx_il_r\convx_il_r.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\_dbgstress3\_dbgstress3.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\_relstress3\_relstress3.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\tailcall\_il_dbgtest_implicit\_il_dbgtest_implicit.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\tailcall\_il_reltest_implicit\_il_reltest_implicit.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M11-Beta1\b41129\b41129\b41129.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M13-RTM\b98958\b98958\b98958.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1.1-M1-Beta1\b143840\b143840\b143840.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V2.0-Beta2\b125091\b125091\b125091.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V2.0-Beta2\b309042\OverwriteArray\OverwriteArray.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V2.0-Beta2\b431011\b431011\b431011.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V2.0-Beta2\b441487\b441487\b441487.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V2.0-RTM\b530694\b530694\b530694.cmd" >
+	     <Issue>970</Issue>
+	</ExcludeList>
     </ItemGroup>
     <ItemGroup Condition="'$(XunitTestBinBase)' != '' and '$(COMPlus_ExecuteHandlers)' == ''">
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\stringintern\_XModuletest4-xmod\_XModuletest4-xmod.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\nullabletypes\value_do\value_do.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\nullabletypes\value_r\value_r.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\nullabletypes\value_ro\value_ro.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\nullabletypes\value_d\value_d.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\deadcode\deadcodeincatch_d\deadcodeincatch_d.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\deadcode\deadcodeincatch_r\deadcodeincatch_r.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\ExcepFilters\mixed3\mixed3\mixed3.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Base\add_ovf\add_ovf.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Base\ckfinite\ckfinite.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Base\conv_ovf\conv_ovf.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Base\mul_ovf\mul_ovf.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Base\sub_ovf\sub_ovf.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\add_ovf_i1\add_ovf_i1.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\add_ovf_i2\add_ovf_i2.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\add_ovf_i4\add_ovf_i4.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\add_ovf_i8\add_ovf_i8.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\add_ovf_u1\add_ovf_u1.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\add_ovf_u2\add_ovf_u2.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\add_ovf_u4\add_ovf_u4.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\add_ovf_u8\add_ovf_u8.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\add_r4\add_r4.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\add_r8\add_r8.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\ckfinite_r8\ckfinite_r8.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\conv_ovf_i4_i1\conv_ovf_i4_i1.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\conv_ovf_i4_i2\conv_ovf_i4_i2.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\conv_ovf_i4_u4\conv_ovf_i4_u4.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\conv_ovf_i8_i4\conv_ovf_i8_i4.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\conv_ovf_i8_u8\conv_ovf_i8_u8.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\conv_ovf_r8_i4\conv_ovf_r8_i4.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\conv_ovf_r8_i8\conv_ovf_r8_i8.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\conv_ovf_r8_i\conv_ovf_r8_i.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\conv_ovf_u4_u1\conv_ovf_u4_u1.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\conv_ovf_u4_u2\conv_ovf_u4_u2.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\conv_ovf_u8_u4\conv_ovf_u8_u4.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\div_r4\div_r4.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\div_r8\div_r8.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\div_u4\div_u4.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\div_u8\div_u8.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\mul_ovf_i1\mul_ovf_i1.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\mul_ovf_i2\mul_ovf_i2.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\mul_ovf_i4\mul_ovf_i4.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\mul_ovf_i8\mul_ovf_i8.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\mul_ovf_u1\mul_ovf_u1.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\mul_ovf_u2\mul_ovf_u2.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\mul_ovf_u4\mul_ovf_u4.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\mul_ovf_u8\mul_ovf_u8.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\mul_r4\mul_r4.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\mul_r8\mul_r8.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\neg_r4\neg_r4.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\neg_r8\neg_r8.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\rem_r8\rem_r8.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\rem_u4\rem_u4.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\rem_u8\rem_u8.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\sub_ovf_i1\sub_ovf_i1.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\sub_ovf_i2\sub_ovf_i2.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\sub_ovf_i4\sub_ovf_i4.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\sub_ovf_i8\sub_ovf_i8.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\sub_ovf_u1\sub_ovf_u1.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\sub_ovf_u2\sub_ovf_u2.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\sub_ovf_u4\sub_ovf_u4.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\sub_ovf_u8\sub_ovf_u8.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\sub_r4\sub_r4.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\IL_Conformance\Old\Conformance_Base\sub_r8\sub_r8.cmd" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M12-Beta2\b66533\b66533\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V2.0-Beta2\b425314\b425314\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M12-Beta2\b53226\b53226b\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M12-Beta2\b52840\b52840\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\Dev11\dev11_76013\Dev11_76013\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\gcreport\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\_dbggcreport\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\_relgcreport\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\_speed_dbggcreport\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\_speed_relgcreport\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\virtcall\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\_dbgvirtcall\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\_relvirtcall\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\_speed_dbgvirtcall\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\_speed_relvirtcall\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\_dbgstress1\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\_relstress1\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\_speed_dbgstress1\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\_speed_relstress1\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\_dbgstress3\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\_relstress3\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\M00\b109721\b109721\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\M00\b112982\b112982\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\StrAccess\straccess3_cs_ro\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\StrAccess\straccess3_cs_do\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\MDArray\basics\structarr_cs_do\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\gc\regress\vswhidbey\143837\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\ExcepFilters\mixed\mixed\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\ExcepFilters\excepobj\excepobj\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M09.5-PDC\b11490\b11490\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M12-Beta2\b84971\b84971\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M09\b15864\b15864\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M09.5-PDC\b27824\b27824\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\MDArray\basics\structarr_cs_ro\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
         <ExcludeList Include="$(XunitTestBinBase)\Interop\ICastable\Castable\*" >
              <Issue>13</Issue>
         </ExcludeList>
@@ -465,7 +1947,16 @@
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\casts\iface\iface1\*" >
              <Issue>13</Issue>
         </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\explicit\basic\refarg_i1\*" >
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\explicit\basic\_relrefarg_i1\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\explicit\basic\_dbgrefarg_i1\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\explicit\basic\_opt_relrefarg_i1\*" >
+             <Issue>13</Issue>
+        </ExcludeList>
+        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\explicit\basic\_opt_dbgrefarg_i1\*" >
              <Issue>13</Issue>
         </ExcludeList>
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\flowgraph\bug619534\ehCodeMotion\*" >
@@ -508,12 +1999,6 @@
              <Issue>13</Issue>
         </ExcludeList>
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\int64\unsigned\muldiv\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\gcreport\*" >
-             <Issue>13</Issue>
-        </ExcludeList>
-        <ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\refany\virtcall\*" >
              <Issue>13</Issue>
         </ExcludeList>
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\M00\b99219\b99219\*" >
@@ -2376,6 +3861,483 @@
         <ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\gettypetypeof\gettypetypeofmatrix\*" >
              <Issue>13</Issue>
         </ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\rtchecks\overflow\overflow01_add\overflow01_add.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\opt\cse\staticFieldExprUnchecked1_d_loop_try\staticFieldExprUnchecked1_d_loop_try.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\explicit\basic\_dbgrefarg_i1\_dbgrefarg_i1.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\rtchecks\overflow\overflow04_div\overflow04_div.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\opt\cse\staticFieldExprUnchecked1_ro_loop\staticFieldExprUnchecked1_ro_loop.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\nullabletypes\unboxnullable_d\unboxnullable_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\rtchecks\overflow\overflow03_add\overflow03_add.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M09\b13944\b13944\b13944.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\explicit\basic\_opt_relrefarg_i1\_opt_relrefarg_i1.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\rtchecks\overflow\overflow02_mul\overflow02_mul.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\rtchecks\overflow\overflow02_add\overflow02_add.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\opt\cse\staticFieldExprUnchecked1_r_loop\staticFieldExprUnchecked1_r_loop.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\opt\rngchk\ArrayWithThread_o\ArrayWithThread_o.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Boxing\seh\_oreltry_cs\_oreltry_cs.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\explicit\basic\_opt_dbgrefarg_i1\_opt_dbgrefarg_i1.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\cctor\misc\throw_cs_r\throw_cs_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\rtchecks\overflow\overflow03_mul\overflow03_mul.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\rtchecks\overflow\overflow03_sub\overflow03_sub.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Boxing\seh\_dbgtry_cs\_dbgtry_cs.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1.2-M02\b00719\b00719\b00719.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\cctor\misc\throw_cs_do\throw_cs_do.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\explicit\basic\_relrefarg_i1\_relrefarg_i1.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\opt\cse\staticFieldExprUnchecked1_r_loop_try\staticFieldExprUnchecked1_r_loop_try.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\nullabletypes\unboxnullable_do\unboxnullable_do.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\nullabletypes\unboxnullable_ro\unboxnullable_ro.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M12-Beta2\b83702\b83702\b83702.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\opt\Inline\tests\InlineThrow\InlineThrow.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\rtchecks\overflow\overflow02_div\overflow02_div.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\stringintern\_Simpleb207621\_Simpleb207621.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\nullabletypes\unboxnullable_r\unboxnullable_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M11-Beta1\b41990\b41990\b41990.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\rtchecks\overflow\overflow04_sub\overflow04_sub.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Boxing\seh\_reltry_cs\_reltry_cs.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\Misc\gettype\gettypetypeofmatrix\gettypetypeofmatrix.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\opt\Inline\tests\Inline_handler\Inline_handler.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\rtchecks\overflow\overflow04_add\overflow04_add.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M12-Beta2\b80764\b80764\b80764.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\rtchecks\overflow\overflow04_mul\overflow04_mul.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\cctor\misc\throw_cs_ro\throw_cs_ro.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\rtchecks\overflow\overflow01_div\overflow01_div.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\rtchecks\overflow\overflow02_sub\overflow02_sub.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\Boxing\seh\_odbgtry_cs\_odbgtry_cs.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\rtchecks\overflow\overflow01_sub\overflow01_sub.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\rtchecks\overflow\overflow01_mul\overflow01_mul.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M12-Beta2\b71093\b71093\b71093.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\cctor\misc\throw_cs_d\throw_cs_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\opt\cse\staticFieldExprUnchecked1_r_try\staticFieldExprUnchecked1_r_try.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\importer\Desktop\ldelemnullarr2_il_d\ldelemnullarr2_il_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\importer\Desktop\ldelemnullarr2_il_r\ldelemnullarr2_il_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\importer\Desktop\nullsdarr_il_d\nullsdarr_il_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\importer\Desktop\nullsdarr_il_r\nullsdarr_il_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\importer\Desktop\volatilldind_il_d\volatilldind_il_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\importer\Desktop\volatilldind_il_r\volatilldind_il_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\importer\Desktop\volatilstind_il_d\volatilstind_il_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Directed\coverage\importer\Desktop\volatilstind_il_r\volatilstind_il_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\eh\basics\throwinfinallyintryfilter1\throwinfinallyintryfilter1.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\eh\basics\throwinfinallyintryfilter2\throwinfinallyintryfilter2.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\eh\FinallyExec\nonlocalexitincatch\nonlocalexitincatch.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\eh\FinallyExec\nonlocalexitinhandler\nonlocalexitinhandler.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\eh\FinallyExec\nonlocalexitintry\nonlocalexitintry.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\eh\eh03_dynamic\eh03_dynamic.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\eh\eh03_large\eh03_large.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\eh\eh03_small\eh03_small.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\unwind\unwind05_dynamic\unwind05_dynamic.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\unwind\unwind05_large\unwind05_large.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\unwind\unwind05_small\unwind05_small.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\unwind\unwind06_dynamic\unwind06_dynamic.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\unwind\unwind06_large\unwind06_large.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\localloc\unwind\unwind06_small\unwind06_small.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinexcept_d\throwinexcept_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinexcept_r\throwinexcept_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfault_d\throwinfault_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfault_r\throwinfault_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfilter_d\throwinfilter_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfilter_r\throwinfilter_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfinallyintryfilter1_d\throwinfinallyintryfilter1_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfinallyintryfilter1_r\throwinfinallyintryfilter1_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfinallyintryfilter2_d\throwinfinallyintryfilter2_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\throwinfinallyintryfilter2_r\throwinfinallyintryfilter2_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\trythrowexcept_d\trythrowexcept_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\basics\trythrowexcept_r\trythrowexcept_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\deadcode\badcodeinsidefinally_d\badcodeinsidefinally_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\deadcode\badcodeinsidefinally_r\badcodeinsidefinally_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\deadcode\deadoponerrorinfunclet_d\deadoponerrorinfunclet_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\deadcode\deadoponerrorinfunclet_r\deadoponerrorinfunclet_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\deadcode\deadtryfinallythrow_d\deadtryfinallythrow_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\deadcode\deadtryfinallythrow_r\deadtryfinallythrow_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\disconnected\backwardleave_d\backwardleave_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\disconnected\backwardleave_r\backwardleave_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\disconnected\catchbeforetrybody_d\catchbeforetrybody_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\disconnected\catchbeforetrybody_r\catchbeforetrybody_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\disconnected\catchtryintryfinally_d\catchtryintryfinally_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\disconnected\catchtryintryfinally_r\catchtryintryfinally_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\disconnected\reversedhandlers_d\reversedhandlers_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\disconnected\reversedhandlers_r\reversedhandlers_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\disconnected\reversedtryblock_d\reversedtryblock_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\disconnected\reversedtryblock_r\reversedtryblock_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\disconnected\testeit_d\testeit_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\disconnected\testeit_r\testeit_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\disconnected\trybodyinbetweencatchhandlers_d\trybodyinbetweencatchhandlers_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\disconnected\trybodyinbetweencatchhandlers_r\trybodyinbetweencatchhandlers_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\disconnected\tryfinallyincatchtry_d\tryfinallyincatchtry_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\disconnected\tryfinallyincatchtry_r\tryfinallyincatchtry_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\nestedfinallycall_d\nestedfinallycall_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\nestedfinallycall_r\nestedfinallycall_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\nonlocalexittonestedsibling_d\nonlocalexittonestedsibling_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\finallyexec\nonlocalexittonestedsibling_r\nonlocalexittonestedsibling_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\interactions\throw1dimarray_d\throw1dimarray_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\interactions\throw1dimarray_r\throw1dimarray_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\interactions\throw2dimarray_d\throw2dimarray_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\interactions\throw2dimarray_r\throw2dimarray_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\backwardleaveincatch_d\backwardleaveincatch_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\backwardleaveincatch_r\backwardleaveincatch_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\forwardleaveincatch_d\forwardleaveincatch_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\forwardleaveincatch_r\forwardleaveincatch_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\leaveinsameregion_d\leaveinsameregion_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\leaveinsameregion_r\leaveinsameregion_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\leaveintotrybody_d\leaveintotrybody_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\leaveintotrybody_r\leaveintotrybody_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\tryfinallyintrycatchwithleaveintotry_d\tryfinallyintrycatchwithleaveintotry_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\leaves\tryfinallyintrycatchwithleaveintotry_r\tryfinallyintrycatchwithleaveintotry_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\mixedhandler\catchfiltercatch_d\catchfiltercatch_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\mixedhandler\catchfiltercatch_r\catchfiltercatch_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\cascadedcatchret\throwincascadedcatch_d\throwincascadedcatch_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\cascadedcatchret\throwincascadedcatch_r\throwincascadedcatch_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\cascadedcatchret\throwincascadedcatchnofin_d\throwincascadedcatchnofin_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\cascadedcatchret\throwincascadedcatchnofin_r\throwincascadedcatchnofin_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\cascadedcatchret\throwincascadedexcept_d\throwincascadedexcept_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\cascadedcatchret\throwincascadedexcept_r\throwincascadedexcept_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\cascadedcatchret\throwincascadedexceptnofin_d\throwincascadedexceptnofin_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\cascadedcatchret\throwincascadedexceptnofin_r\throwincascadedexceptnofin_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\localvarincatch_d\localvarincatch_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\localvarincatch_r\localvarincatch_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\throwinnestedcatch_d\throwinnestedcatch_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\general\throwinnestedcatch_r\throwinnestedcatch_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\nestedtry\throwinnestedtrycatch_d\throwinnestedtrycatch_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\nestedtry\throwinnestedtrycatch_r\throwinnestedtrycatch_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\nestedtry\throwinnestedtryexcept_d\throwinnestedtryexcept_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\nestedtry\throwinnestedtryexcept_r\throwinnestedtryexcept_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\nestedtry\throwinnestedtryfinally_d\throwinnestedtryfinally_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\eh\nested\nestedtry\throwinnestedtryfinally_r\throwinnestedtryfinally_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\flowgraph\dev10_bug679008\fgloop\fgloop.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\flowgraph\dev10_bug679053\regionLive\regionLive.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\NaN\r4nanconv_il_d\r4nanconv_il_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\NaN\r4nanconv_il_r\r4nanconv_il_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\NaN\r8nanconv_il_d\r8nanconv_il_d.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Methodical\NaN\r8nanconv_il_r\r8nanconv_il_r.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M13-RTM\b92066\b92066\b92066.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M13-RTM\b92073\b92073\b92073.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1-M13-RTM\b92289\b92289\b92289.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1.2-M01\b16382\b16382\b16382.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V1.2-M01\b16473\b16473\b16473.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V2.0-Beta2\b359564\b359564\b359564.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V2.0-Beta2\b426654\b426654\b426654.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V2.0-RTM\b487364\b487364\b487364.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\CLR-x86-JIT\V2.0-RTM\b487372\b487372\b487372.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\Dev11\dev11_10427\conv_ovf_i4\conv_ovf_i4.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\V1.2-M02\b19289\b19289\b19289.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
+	<ExcludeList Include="$(XunitTestBinBase)\JIT\Regression\VS-ia64-JIT\V1.2-M02\b27077\b27077\b27077.cmd" >
+	     <Issue>13</Issue>
+	</ExcludeList>
     </ItemGroup>
     <ItemGroup Condition="'$(XunitTestBinBase)' != '' and '$(COMPLUS_INSERTSTATEPOINTS)' != ''">	
         <ExcludeList Include="$(XunitTestBinBase)\JIT\jit64\regress\ddb\113574\113574\*" >

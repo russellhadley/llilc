@@ -30,15 +30,24 @@ def run(args):
     os.chmod(nugetExe, st.st_mode | stat.S_IEXEC)
 
   if (sys.platform != "win32"):
-    mono = "/usr/bin/mono"
-    if not os.path.exists(mono):
-      raise mono + " is required to run nuget.exe"
-    nugetExe = mono + " " + nugetExe
+    # shutil.which can be used for python 3.3 or later, instead.
+    for mono in ["/usr/bin/mono", "/usr/local/bin/mono"]:
+      if os.path.exists(mono):
+        monopath = mono
+    if not monopath:
+      raise "mono is required to run nuget.exe"
+    nugetExe = monopath + " " + nugetExe
 
   nugetSpec = os.path.join(nugetFolder, os.path.basename(args.nuspec))
   if args.nuspec != nugetSpec:
     print("\nCopying " + args.nuspec + " to " + nugetSpec)
     shutil.copyfile(args.nuspec, nugetSpec)
+
+  if args.json != None:
+    nugetJson = os.path.join(nugetFolder, os.path.basename(args.json))
+    if args.json != nugetJson:
+      print("\nCopying " + args.json + " to " + nugetJson)
+      shutil.copyfile(args.json, nugetJson)
 
   nugetCommand = nugetExe + " pack " + nugetSpec \
                  + " -NoPackageAnalysis -NoDefaultExcludes" \
@@ -62,6 +71,10 @@ def main(argv):
             default=None,
             help="path to a nuspec file. This file is assumed to be under " \
                  "a child directory (.nuget) of the target by convetion")
+  parser.add_argument("--json", metavar="PATH",
+            default=None,
+            help="path to a json file. This file is used to create " \
+                 "a redirection package")
   args,unknown = parser.parse_known_args(argv)
 
   if unknown:

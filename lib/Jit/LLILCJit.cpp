@@ -59,6 +59,9 @@
 #include "llvm/Transforms/Scalar.h"
 #include "llvm/Transforms/IPO/PassManagerBuilder.h"
 #include <string>
+#if defined(WIN32) && defined(_MSC_VER)
+#include <crtdbg.h>
+#endif
 
 using namespace llvm;
 using namespace llvm::object;
@@ -164,6 +167,27 @@ ICorJitCompiler *__stdcall getJit() {
 
     // Allow LLVM to pick up options via the environment
     cl::ParseEnvironmentOptions("LLILCJit", "COMPlus_AltJitOptions");
+
+#if defined(_WIN32) && defined(_MSC_VER)
+    // Conditionally suppress error dialogs to avoid hangs on lab machines.
+    // Leave policy on crash reporting and postmortem to our host.
+    //
+    // Would be nice to query options here, but we don't have a callback pointer
+    // until we get the first jit request. For now we just look at the
+    // environment variable.
+    const char *NoPopups = getenv("COMPlus_NoGuiOnAssert");
+    if ((NoPopups != nullptr) && (NoPopups[0] != '0')) {
+      const bool NoCrashReporting = true;
+      llvm::sys::PrintStackTraceOnErrorSignal(NoCrashReporting);
+      ::_set_error_mode(_OUT_TO_STDERR);
+      _CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_FILE | _CRTDBG_MODE_DEBUG);
+      _CrtSetReportFile(_CRT_WARN, _CRTDBG_FILE_STDERR);
+      _CrtSetReportMode(_CRT_ERROR, _CRTDBG_MODE_FILE | _CRTDBG_MODE_DEBUG);
+      _CrtSetReportFile(_CRT_ERROR, _CRTDBG_FILE_STDERR);
+      _CrtSetReportMode(_CRT_ASSERT, _CRTDBG_MODE_FILE | _CRTDBG_MODE_DEBUG);
+      _CrtSetReportFile(_CRT_ASSERT, _CRTDBG_FILE_STDERR);
+    }
+#endif
 
     auto &Opts = cl::getRegisteredOptions();
     if (Opts["fast-isel"]->getNumOccurrences() == 0) {
@@ -305,8 +329,7 @@ CorJitResult LLILCJit::compileMethod(ICorJitInfo *JitInfo,
     // calls as possible in that form and use shared delay-load thunks when
     // possible. Setting OptLevel to Default increases the chances of calls via
     // memory and setting CodeModel to Default enables rel32 relocations.
-    if ((Context.Options->OptLevel != ::OptLevel::DEBUG_CODE) || IsNgen ||
-        IsReadyToRun) {
+    if ((Context.Options->EnableOptimization) || IsNgen || IsReadyToRun) {
       OptLevel = CodeGenOpt::Level::Default;
     } else {
       OptLevel = CodeGenOpt::Level::None;

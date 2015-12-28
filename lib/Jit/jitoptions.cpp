@@ -63,6 +63,8 @@ JitOptions::JitOptions(LLILCJitContext &Context) {
 
   // Set optimization level for this JIT invocation.
   OptLevel = queryOptLevel(Context);
+  EnableOptimization = OptLevel != OptLevel::DEBUG_CODE;
+
 
   // Set whether the JIT needs to generate debug info.
   DoGenerateDebugInfo = queryGenerateDebugInfo(Context);

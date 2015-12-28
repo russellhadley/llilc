@@ -86,7 +86,7 @@ public:
   llvm::Module *CurrentModule;    ///< Module holding LLVM IR.
   llvm::TargetMachine *TM;        ///< Target characteristics
   bool HasLoadedBitCode;          ///< Flag for side-loaded LLVM IR.
-  llvm::StringMap<uint64_t> NameToHandleMap; ///< Map from global variable names
+  llvm::StringMap<uint64_t> NameToHandleMap; ///< Map from global object names
                                              ///< to the corresponding CLR
                                              ///< handles.
   //@}
@@ -159,7 +159,8 @@ public:
   /// are looked up via element type, element handle, array rank, and whether
   /// this array is a vector (single-dimensional array with zero lower bound).
   std::map<std::tuple<CorInfoType, CORINFO_CLASS_HANDLE, uint32_t, bool>,
-           llvm::Type *> ArrayTypeMap;
+           llvm::Type *>
+      ArrayTypeMap;
 
   /// \brief Map from a field handle to the index of that field in the overall
   /// layout of the enclosing class.

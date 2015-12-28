@@ -328,6 +328,7 @@ void GenIR::readerPrePass(uint8_t *Buffer, uint32_t NumBytes) {
   LocalVars.resize(NumLocals);
   LocalVarCorTypes.resize(NumLocals);
   KeepGenericContextAlive = false;
+  NeedsStackSecurityCheck = HasLocAlloc;
   NeedsSecurityObject = false;
   DoneBuildingFlowGraph = false;
   UnreachableContinuationBlock = nullptr;
@@ -337,7 +338,7 @@ void GenIR::readerPrePass(uint8_t *Buffer, uint32_t NumBytes) {
   // Setup function for emiting debug locations
   DIFile *Unit = DBuilder->createFile(LLILCDebugInfo.TheCU->getFilename(),
                                       LLILCDebugInfo.TheCU->getDirectory());
-  bool IsOptimized = (JitContext->Flags & CORJIT_FLG_DEBUG_CODE) == 0;
+  bool IsOptimized = JitContext->Options->EnableOptimization;
   DIScope *FContext = Unit;
   unsigned LineNo = 0;
   unsigned ScopeLine = ICorDebugInfo::PROLOG;
@@ -452,7 +453,7 @@ void GenIR::readerPrePass(uint8_t *Buffer, uint32_t NumBytes) {
     callMonitorHelper(IsEnter);
   }
 
-  if ((JitFlags & CORJIT_FLG_DEBUG_CODE) && !(JitFlags & CORJIT_FLG_IL_STUB)) {
+  if (!IsOptimized && !(JitFlags & CORJIT_FLG_IL_STUB)) {
     // Get the handle from the EE.
     bool IsIndirect = false;
     void *DebugHandle =
@@ -580,13 +581,16 @@ void GenIR::cloneFinallyBodies() {
       continue;
     }
 
-    Instruction *InsertBefore;
+    BasicBlock *InsertBlock;
+    BasicBlock::iterator InsertPoint;
     if (auto *Catchpad = dyn_cast<CatchPadInst>(First)) {
-      InsertBefore = &*Catchpad->getNormalDest()->getFirstInsertionPt();
+      InsertBlock = Catchpad->getNormalDest();
+      InsertPoint = InsertBlock->getFirstInsertionPt();
     } else {
-      InsertBefore = First->getNextNode();
+      InsertBlock = &BB;
+      InsertPoint = std::next(First->getIterator());
     }
-    LLVMBuilder->SetInsertPoint(InsertBefore);
+    LLVMBuilder->SetInsertPoint(InsertBlock, InsertPoint);
     Type *VoidType = Type::getVoidTy(*JitContext->LLVMContext);
     const bool MayThrow = false;
     callHelperImpl(CORINFO_HELP_FAIL_FAST, MayThrow, VoidType);
@@ -754,7 +758,8 @@ void GenIR::readerPostPass(bool IsImportOnly) {
 
     // Zero Initialize all the GC-Objects recorded in GcFuncInfo
     assert(AllocaInsertionPoint != nullptr);
-    LLVMBuilder->SetInsertPoint(AllocaInsertionPoint->getNextNode());
+    LLVMBuilder->SetInsertPoint(AllocaInsertionPoint->getParent(),
+                                std::next(AllocaInsertionPoint->getIterator()));
 
     for (Value *EscapingValue : EscapingLocs) {
       if (GcInfo::isGcAllocation(EscapingValue)) {
@@ -810,7 +815,8 @@ void GenIR::insertIRToKeepGenericContextAlive() {
     Value *This = thisObj();
     Instruction *ScratchLocalAlloca = createTemporary(This->getType());
     // Put the store just after the newly added alloca.
-    LLVMBuilder->SetInsertPoint(ScratchLocalAlloca->getNextNode());
+    LLVMBuilder->SetInsertPoint(ScratchLocalAlloca->getParent(),
+                                std::next(ScratchLocalAlloca->getIterator()));
     InsertPoint = makeStoreNonNull(This, ScratchLocalAlloca, false);
     // The scratch local's address is the saved context address.
     ContextLocalAddress = ScratchLocalAlloca;
@@ -847,7 +853,8 @@ void GenIR::insertIRForSecurityObject() {
   Instruction *SecurityObjectAddress = createTemporary(Ty, "SecurityObject");
 
   // Zero out the security object.
-  LLVMBuilder->SetInsertPoint(SecurityObjectAddress->getNextNode());
+  LLVMBuilder->SetInsertPoint(SecurityObjectAddress->getParent(),
+                              std::next(SecurityObjectAddress->getIterator()));
   IRNode *NullValue = loadNull();
   const bool IsVolatile = true;
   makeStoreNonNull(NullValue, SecurityObjectAddress, IsVolatile);
@@ -916,7 +923,8 @@ void GenIR::insertIRForUnmanagedCallFrame() {
       createTemporary(ThreadPointerTy, "ThreadPointer");
 
   // Intialize the call frame
-  LLVMBuilder->SetInsertPoint(ThreadPointerAddress->getNextNode());
+  LLVMBuilder->SetInsertPoint(ThreadPointerAddress->getParent(),
+                              std::next(ThreadPointerAddress->getIterator()));
 
   // Argument 0: &InlinedCallFrame[CallFrameInfo.offsetOfFrameVptr]
   Value *FrameVPtrIndices[] = {
@@ -1048,6 +1056,15 @@ void GenIR::createSym(uint32_t Num, bool IsAuto, CorInfoType CorType,
     if (!doesArgumentHaveHome(Info)) {
       Arguments[Num] = functionArgAt(Function, Info.getIndex());
       return;
+    }
+
+    // Look for unsafe locals (eventually we'll need to keep track
+    // of these and reorder the stack and such).
+    if (LLVMType->isStructTy() && (Class != nullptr)) {
+      uint32_t ClassFlags = getClassAttribs(Class);
+      if (ClassFlags & CORINFO_FLG_UNSAFE_VALUECLASS) {
+        NeedsStackSecurityCheck = true;
+      }
     }
   }
 
@@ -1283,26 +1300,22 @@ Instruction *GenIR::createTemporary(Type *Ty, const Twine &Name) {
   // the temporary uses can appear anywhere.
   IRBuilder<>::InsertPoint IP = LLVMBuilder->saveIP();
 
-  Instruction *InsertBefore = nullptr;
+  BasicBlock::iterator InsertPoint;
   BasicBlock *Block = nullptr;
   if (AllocaInsertionPoint == nullptr) {
     // There are no local, param or temp allocas in the entry block, so set
     // the insertion point to the first point in the block.
-    InsertBefore = &*EntryBlock->getFirstInsertionPt();
+    InsertPoint = EntryBlock->getFirstInsertionPt();
     Block = EntryBlock;
   } else {
     // There are local, param or temp allocas. TempInsertionPoint refers to
     // the last of them. Set the insertion point to the next instruction since
     // the builder will insert new instructions before the insertion point.
-    InsertBefore = AllocaInsertionPoint->getNextNode();
+    InsertPoint = std::next(AllocaInsertionPoint->getIterator());
     Block = AllocaInsertionPoint->getParent();
   }
 
-  if (InsertBefore == Block->end()) {
-    LLVMBuilder->SetInsertPoint(Block);
-  } else {
-    LLVMBuilder->SetInsertPoint(InsertBefore);
-  }
+  LLVMBuilder->SetInsertPoint(Block, InsertPoint);
 
   AllocaInst *AllocaInst = createAlloca(Ty, nullptr, Name);
   // Update the end of the alloca range.
@@ -4327,6 +4340,7 @@ IRNode *GenIR::loadLocal(uint32_t LocalOrdinal) {
 }
 
 IRNode *GenIR::loadLocalAddress(uint32_t LocalOrdinal) {
+  assert(HasAddressTaken && "need to detect this in first pass");
   uint32_t LocalIndex = LocalOrdinal;
   return loadManagedAddress(LocalVars[LocalIndex]);
 }
@@ -4361,6 +4375,7 @@ IRNode *GenIR::loadArg(uint32_t ArgOrdinal, bool IsJmp) {
 }
 
 IRNode *GenIR::loadArgAddress(uint32_t ArgOrdinal) {
+  assert(HasAddressTaken && "need to detect this in first pass");
   uint32_t ArgIndex = MethodSignature.getArgIndexForILArg(ArgOrdinal);
   Value *Address = Arguments[ArgIndex];
   return loadManagedAddress(Address);
@@ -5833,9 +5848,24 @@ bool GenIR::canMakeDirectCall(ReaderCallTargetData *CallTargetData) {
 GlobalVariable *GenIR::getGlobalVariable(uint64_t LookupHandle,
                                          uint64_t ValueHandle, Type *Ty,
                                          StringRef Name, bool IsConstant) {
-  GlobalVariable *&GlobalVar = HandleToGlobalVariableMap[LookupHandle];
-
-  if (GlobalVar == nullptr) {
+  GlobalObject *Object = HandleToGlobalObjectMap[LookupHandle];
+  GlobalVariable *GlobalVar = nullptr;
+  if (Object != nullptr) {
+    // Already have an object, make sure it's the right one.
+    //
+    // We'd like to assert that the name matches, but the same
+    // LookupHandle may go by many names.
+    assert(isa<GlobalVariable>(Object) && "expected variable");
+    // Note after setting a global var V's type to Ty, V->getType() will
+    // return ptr-to-Ty, while V->getValueType() will return Ty.
+    assert(Object->getValueType() == Ty && "type mismatch for global");
+    assert(NameToHandleMap->count(Object->getName()) == 1 &&
+           "missing value for global");
+    assert((*NameToHandleMap)[Object->getName()] == ValueHandle &&
+           "value mismatch for global");
+    GlobalVar = cast<GlobalVariable>(Object);
+  } else {
+    // Create a new global variable
     Constant *Initializer = nullptr;
     const bool IsExternallyInitialized = false;
     const GlobalValue::LinkageTypes LinkageType =
@@ -5847,23 +5877,70 @@ GlobalVariable *GenIR::getGlobalVariable(uint64_t LookupHandle,
                                    LinkageType, Initializer, Name, InsertBefore,
                                    GlobalValue::NotThreadLocal, AddressSpace,
                                    IsExternallyInitialized);
+
+    // Set up or verify the value mapping.
     StringRef ResultName = GlobalVar->getName();
     if (NameToHandleMap->count(ResultName) == 1) {
       assert((*NameToHandleMap)[ResultName] == ValueHandle);
     } else {
       (*NameToHandleMap)[ResultName] = ValueHandle;
     }
+
+    // Cache for future lookups.
+    HandleToGlobalObjectMap[LookupHandle] = GlobalVar;
   }
 
   return GlobalVar;
 }
 
+Function *GenIR::getFunction(uint64_t LookupHandle, uint64_t ValueHandle,
+                             FunctionType *Ty, StringRef Name) {
+  GlobalObject *Object = HandleToGlobalObjectMap[LookupHandle];
+  llvm::Function *F = nullptr;
+  if (Object != nullptr) {
+    // Already have an object, make sure it's the right one.
+    //
+    // We'd like to assert that the name matches, but the same
+    // LookupHandle may go by many names.
+    assert(isa<llvm::Function>(Object) && "expected function");
+    assert(NameToHandleMap->count(Object->getName()) == 1 &&
+           "missing value for function");
+    assert((*NameToHandleMap)[Object->getName()] == ValueHandle &&
+           "value mismatch for function");
+    F = cast<llvm::Function>(Object);
+  } else {
+    // Create a new function.
+    if (LookupHandle == (uint64_t)JitContext->MethodInfo->ftn) {
+      // Self-reference....
+      F = this->Function;
+    } else {
+      const GlobalValue::LinkageTypes LinkageType =
+          GlobalValue::LinkageTypes::ExternalLinkage;
+      F = Function::Create(Ty, LinkageType, Name, JitContext->CurrentModule);
+    }
+
+    // Set up or verify the value mapping.
+    StringRef ResultName = F->getName();
+    if (NameToHandleMap->count(ResultName) == 1) {
+      assert((*NameToHandleMap)[ResultName] == ValueHandle);
+    } else {
+      (*NameToHandleMap)[ResultName] = ValueHandle;
+    }
+
+    // Cache for future lookups.
+    HandleToGlobalObjectMap[LookupHandle] = F;
+  }
+
+  return F;
+}
+
 IRNode *GenIR::makeDirectCallTargetNode(CORINFO_METHOD_HANDLE MethodHandle,
                                         mdToken MethodToken, void *CodeAddr) {
-  uint64_t Handle = (uint64_t)CodeAddr;
-  Type *CodeAddrTy =
-      Type::getIntNTy(*JitContext->LLVMContext, TargetPointerSizeInBits);
-  const bool IsConstant = true;
+  // Use bogus function type for now. We'll fix it up later on when we
+  // know the actual signature.
+  llvm::LLVMContext *LLVMContext = JitContext->LLVMContext;
+  Type *VoidType = Type::getVoidTy(*LLVMContext);
+  FunctionType *FuncTy = FunctionType::get(VoidType, false);
   const char *ModuleName = nullptr;
   const char *MethodName =
       JitContext->JitInfo->getMethodName(MethodHandle, &ModuleName);
@@ -5872,12 +5949,10 @@ IRNode *GenIR::makeDirectCallTargetNode(CORINFO_METHOD_HANDLE MethodHandle,
   raw_string_ostream OS(FullName);
   OS << format("%s.%s(TK_%x)", ModuleName, MethodName, MethodToken);
   OS.flush();
-  GlobalVariable *GlobalVar =
-      getGlobalVariable(Handle, Handle, CodeAddrTy, FullName, IsConstant);
+  llvm::Function *Func =
+      getFunction((uint64_t)MethodHandle, (uint64_t)CodeAddr, FuncTy, FullName);
 
-  Value *CodeAddrValue = LLVMBuilder->CreatePtrToInt(GlobalVar, CodeAddrTy);
-
-  return (IRNode *)CodeAddrValue;
+  return (IRNode *)Func;
 }
 
 // Helper callback used by rdrCall to emit a call to allocate a new MDArray.
@@ -6051,7 +6126,8 @@ IRNode *GenIR::genCall(ReaderCallTargetData *CallTargetInfo, bool MayThrow,
                        std::vector<IRNode *> Args, IRNode **CallNode) {
   IRNode *Call = nullptr;
   IRNode *TargetNode = CallTargetInfo->getCallTargetNode();
-  if (TargetNode->getType()->isPointerTy()) {
+  if (!isa<llvm::Function>(TargetNode) &&
+      TargetNode->getType()->isPointerTy()) {
     // According to the ECMA CLI standard, II.14.5, the preferred
     // representation of method pointers is a native int
     // which is an int the size of a pointer.
@@ -6065,14 +6141,6 @@ IRNode *GenIR::genCall(ReaderCallTargetData *CallTargetInfo, bool MayThrow,
   }
   const ReaderCallSignature &Signature =
       CallTargetInfo->getCallTargetSignature();
-
-  if (CallTargetInfo->isTailCall()) {
-    // If there's no explicit tail prefix, we can generate
-    // a normal call and all will be well.
-    if (!CallTargetInfo->isUnmarkedTailCall()) {
-      throw NotYetImplementedException("Tail call");
-    }
-  }
 
   CorInfoCallConv CC = Signature.getCallingConvention();
   if (CC == CORINFO_CALLCONV_VARARG) {
@@ -6141,6 +6209,21 @@ IRNode *GenIR::genCall(ReaderCallTargetData *CallTargetInfo, bool MayThrow,
   // Add VarArgs cookie to outgoing param list
   if (CC == CORINFO_CALLCONV_VARARG) {
     canonVarargsCall(Call, CallTargetInfo);
+  }
+
+  // If this call is eligible for tail calls, mark it now.
+  if (!IsJmp) {
+    if (CallTargetInfo->isTailCall()) {
+      if (isa<CallInst>(Call)) {
+        CallInst *C = cast<CallInst>(Call);
+        bool canTailCall =
+            tailCallChecks(CallTargetInfo->getMethodHandle(),
+                           CallTargetInfo->getKnownMethodHandle(),
+                           CallTargetInfo->isUnmarkedTailCall(),
+                           ABICallSig.hasIndirectResultOrArg());
+        C->setTailCall(canTailCall);
+      }
+    }
   }
 
   *CallNode = Call;
@@ -6516,46 +6599,54 @@ IRNode *GenIR::convert(Type *Ty, Value *Node, bool SourceIsSigned) {
 // Common to both recursive and non-recursive tail call considerations.
 // The debug messages are only wanted when checking the general case
 // and not for special recursive checks.
-bool GenIR::commonTailCallChecks(CORINFO_METHOD_HANDLE DeclaredMethod,
-                                 CORINFO_METHOD_HANDLE ExactMethod,
-                                 bool IsUnmarkedTailCall, bool SuppressMsgs) {
+bool GenIR::tailCallChecks(CORINFO_METHOD_HANDLE DeclaredMethod,
+                           CORINFO_METHOD_HANDLE ExactMethod,
+                           bool IsUnmarkedTailCall,
+                           bool HasIndirectResultOrArgument) {
   const char *Reason = nullptr;
   bool SuppressReport = false;
   uint32_t MethodCompFlags = getCurrentMethodAttribs();
+
   if (MethodCompFlags & CORINFO_FLG_SYNCH) {
     Reason = "synchronized";
-  }
-#if 0
-  else if (MethodCompFlags & CORINFO_FLG_SECURITYCHECK) {
+  } else if (MethodCompFlags & CORINFO_FLG_SECURITYCHECK) {
     Reason = "caller's declarative security";
-  }
-  else if (IsUnmarkedTailCall && !Optimizing) {
+  } else if (IsUnmarkedTailCall && !JitContext->Options->EnableOptimization) {
     Reason = "not optimizing";
-  }
-#endif
-  else if (IsUnmarkedTailCall && HasLocAlloc) {
+  } else if (IsUnmarkedTailCall && !JitContext->Options->DoTailCallOpt) {
+    Reason = "tail call opt disabled";
+  } else if (IsUnmarkedTailCall && HasLocAlloc) {
     Reason = "localloc";
-  }
-#if 0
-  else if (FSecurityChecksNeeded) {
+  } else if (IsUnmarkedTailCall && HasAddressTaken) {
+    Reason = "address taken local or argument";
+  } else if (NeedsStackSecurityCheck) {
     Reason = "GS";
-  }
-  else if (IsUnmarkedTailCall && hasLocalAddressTaken()) {
-    Reason = "local address taken";
-  }
-#endif
-  else if (!canTailCall(DeclaredMethod, ExactMethod, !IsUnmarkedTailCall)) {
-    Reason = "canTailCall API\n";
+  } else if (!canTailCall(DeclaredMethod, ExactMethod, !IsUnmarkedTailCall)) {
+    Reason = "canTailCall declined";
     SuppressReport = true;
-  } else {
+  } else if (getCurrentMethodHandle() == ExactMethod) {
+    // For tail recursion, also run the canInline check.
+    CorInfoInline inlineCheck =
+        canInline(getCurrentMethodHandle(), ExactMethod, nullptr);
+    if (inlineCheck != CorInfoInline::INLINE_PASS) {
+      Reason = "tail recursion and can't inline";
+    }
+  } else if (HasIndirectResultOrArgument) {
+    Reason = "pass by reference result or argument";
+  }
+
+  // Did we find any reason not to tail call? If not, we're good.
+  if (Reason == nullptr) {
     return true;
   }
 
-  ASSERTNR(Reason != nullptr);
-  if (!SuppressMsgs) {
-    fprintf(stderr, "ALL: %splicit tail call request not honored due to %s\n",
-            IsUnmarkedTailCall ? "im" : "ex", Reason);
+  // Else report the failure to the EE, if needed
+  if (!SuppressReport) {
+    JitContext->JitInfo->reportTailCallDecision(
+        getCurrentMethodHandle(), ExactMethod, !IsUnmarkedTailCall,
+        TAILCALL_FAIL, Reason);
   }
+
   return false;
 }
 
@@ -6639,22 +6730,24 @@ void GenIR::methodNeedsToKeepAliveGenericsContext(bool NewValue) {
 
 void GenIR::nop() {
   // Preserve Nops in debug builds since they may carry unique source positions.
-  if ((JitContext->Flags & CORJIT_FLG_DEBUG_CODE) != 0) {
-    // LLVM has no high-level NOP instruction. Put in a placeholder for now.
-    // This will survive lowering, but we may want to do something else that
-    // is cleaner
-    // TODO: Look into creating a high-level NOP that doesn't get removed and
-    // gets lowered to the right platform-specific encoding
-
-    bool IsVariadic = false;
-    llvm::FunctionType *FTy = llvm::FunctionType::get(
-        llvm::Type::getVoidTy(*(JitContext->LLVMContext)), IsVariadic);
-
-    llvm::InlineAsm *AsmCode = llvm::InlineAsm::get(FTy, "nop", "", true, false,
-                                                    llvm::InlineAsm::AD_Intel);
-    ArrayRef<Value *> Args;
-    LLVMBuilder->CreateCall(AsmCode, Args);
+  if (JitContext->Options->EnableOptimization) {
+    return;
   }
+
+  // LLVM has no high-level NOP instruction. Put in a placeholder for now.
+  // This will survive lowering, but we may want to do something else that
+  // is cleaner
+  // TODO: Look into creating a high-level NOP that doesn't get removed and
+  // gets lowered to the right platform-specific encoding
+
+  bool IsVariadic = false;
+  llvm::FunctionType *FTy = llvm::FunctionType::get(
+      llvm::Type::getVoidTy(*(JitContext->LLVMContext)), IsVariadic);
+
+  llvm::InlineAsm *AsmCode = llvm::InlineAsm::get(FTy, "nop", "", true, false,
+                                                  llvm::InlineAsm::AD_Intel);
+  ArrayRef<Value *> Args;
+  LLVMBuilder->CreateCall(AsmCode, Args);
 }
 
 IRNode *GenIR::unbox(CORINFO_RESOLVED_TOKEN *ResolvedToken, IRNode *Object,
@@ -8202,9 +8295,8 @@ bool GenIR::sqrt(IRNode *Argument, IRNode **Result) {
 }
 
 IRNode *GenIR::localAlloc(IRNode *Arg, bool ZeroInit) {
-  // Note that we've seen a localloc in this method, since it has repercussions
-  // on other aspects of code generation.
-  this->HasLocAlloc = true;
+  // We should have noticed this during the first pass.
+  assert(HasLocAlloc && "need to detect localloc early");
 
   // Arg is the number of bytes to allocate. Result must be pointer-aligned.
   const unsigned int Alignment = TargetPointerSizeInBits / 8;
@@ -8589,6 +8681,20 @@ Type *GenIR::getStackMergeType(Type *Ty1, Type *Ty2, bool IsStruct1,
     if (StructTy1->isLayoutIdentical(StructTy2)) {
       // Arbitrarily pick Ty1 as the resulting type.
       return Ty1;
+    }
+  }
+
+  // If we have (pointers to) two function types, if one or the other is not the
+  // default `void()` placeholder, use it as the resulting type.
+  Type *ReferentType1 = PointerTy1->getPointerElementType();
+  Type *ReferentType2 = PointerTy2->getPointerElementType();
+  if (isa<FunctionType>(ReferentType1) && isa<FunctionType>(ReferentType2)) {
+    Type *VoidType = Type::getVoidTy(LLVMContext);
+    FunctionType *PlaceholderType = FunctionType::get(VoidType, false);
+    if (ReferentType1 != PlaceholderType) {
+      return Ty1;
+    } else {
+      return Ty2;
     }
   }
 
